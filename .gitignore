@@ -1,0 +1,12 @@
+# dependencias y builds
+node_modules/
+dist/
+
+# variables de entorno (no subir keys)
+.env
+.env.*
+server/.env
+
+# sistema / editor
+.DS_Store
+Thumbs.db
