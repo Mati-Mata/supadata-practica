@@ -85,5 +85,5 @@ app.get("/api/scrape", async (req, res) => {
 app.get("/", (_, res) => res.send("SupaData proxy running"));
 
 app.listen(PORT, () => {
-  console.log(`✅ Proxy listo en http://localhost:${PORT}`);
+  console.log(`Proxy listo en http://localhost:${PORT}`);
 });
