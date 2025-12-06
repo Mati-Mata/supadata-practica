@@ -6,27 +6,36 @@
   --text: #e5e7eb;
   --muted: #9ca3af;
   --border: #1f2937;
-  --primary: #22c55e;  /* verde */
+  --primary: #22c55e;
   --primary-2: #16a34a;
-  --accent: #60a5fa;   /* azul */
+  --accent: #60a5fa;
   --accent-2: #3b82f6;
   --warn: #f59e0b;
   --shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; }
+/* IMPORTANTE: usar min-height, NO height, para que el fondo cubra todo el scroll */
+html, body, #root { min-height: 100%; }
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: radial-gradient(1200px 800px at 20% -10%, #172554 0%, transparent 60%),
-              radial-gradient(1200px 800px at 100% 20%, #0b132f 0%, transparent 50%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  /* Color base oscuro para que nunca aparezca “blanco” al final */
+  background-color: var(--bg2);
+  /* Gradiente fijo que se mantiene al scrollear */
+  background-image:
+    radial-gradient(1200px 800px at 20% -10%, #172554 0%, transparent 60%),
+    radial-gradient(1200px 800px at 100% 20%, #0b132f 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+* { box-sizing: border-box; }
+
 .app-shell {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 0 16px;
 }
@@ -35,7 +44,7 @@ body {
   text-align: center;
   font-weight: 800;
   letter-spacing: .4px;
-  margin: 0 0 18px 0;
+  margin: 0 0 12px 0;
   font-size: clamp(26px, 3vw, 36px);
 }
 
@@ -88,10 +97,7 @@ body {
   color: #06110b;
 }
 .btn-primary:hover { filter: brightness(1.02); }
-.btn-ghost {
-  background: transparent;
-  border-color: var(--border);
-}
+.btn-ghost { background: transparent; border-color: var(--border); }
 
 .kbd {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -102,10 +108,9 @@ body {
   color: var(--muted);
 }
 
-.section {
-  margin-top: 18px;
-}
+.section { margin-top: 18px; }
 
+/* Acordeones */
 .accordion {
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -130,14 +135,21 @@ body {
   border-top: 1px solid var(--border);
 }
 
+/* Paneles con altura adaptada al monitor (scroll interno) */
+.panel-scroll { max-height: calc(100vh - 250px); overflow: auto; }
+
 .pre {
   white-space: pre-wrap;
   background: #0a0f1d;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px;
-  max-height: 360px;
-  overflow: auto;
+}
+
+/* Layout 2 columnas para pantallas anchas */
+.two-col { display: grid; gap: 16px; }
+@media (min-width: 1100px) {
+  .two-col { grid-template-columns: 1fr 1.2fr; align-items: start; }
 }
 
 .hr { height: 1px; background: var(--border); border: 0; margin: 16px 0; }
