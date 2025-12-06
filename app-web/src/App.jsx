@@ -115,7 +115,7 @@ export default function App(){
           {rawOpen && (
             <div className="acc-body">
               <div className="row" style={{marginBottom:8}}>
-                <input className="input" style={{flex:1}} placeholder="Palabra clave (ej: api, javascript, supadata)" value={q} onChange={e=>setQ(e.target.value)}/>
+                <input className="input" style={{flex:1}} placeholder="Ingresa una palabra clave a encontrar" value={q} onChange={e=>setQ(e.target.value)}/>
                 <label style={{display:"flex",alignItems:"center",gap:6}}>
                   <input type="checkbox" checked={onlyMatches} onChange={e=>setOnlyMatches(e.target.checked)}/> Mostrar solo coincidencias
                 </label>
@@ -248,7 +248,7 @@ export default function App(){
 
   return (
     <div className="app-shell">
-      <h1 className="title">WebText Master by MM</h1>
+      <h1 className="title">WebText Master by MatiMata</h1>
       <p className="subtitle">Transcribe videos o lee páginas web, filtra por palabra y guarda tus fragmentos o imágenes favoritas ✨</p>
 
       <FavoritesDrawer />
