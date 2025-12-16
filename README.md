@@ -25,13 +25,17 @@ VITE_SERVER_URL=http://localhost:3000
 
 ## Cómo correr en dev
 1) Backend (proxy):
-```cd server
+```
+cd server
 npm install
-npm start```
+npm start
+```
 2) Frontend:
+```
 cd app-web
 npm install
 npm run dev
+```
 
 markdown
 Copy code
